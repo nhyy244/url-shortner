@@ -2,7 +2,7 @@
 simple url-shortner to learn more about system design
 
 #### What is an url shortner
-A program that reduces the length of an URL without losing it's properties. Used mainly for sharing and storing URL's that are big. Storage benefits, used in instant messaging services (messenger, twitter etc.) as there is a cap on how many characters a message can carry. Can also be used for malicious work, as the tiny URL often hides the redirect.
+A program that creates a shorter version of a URL while still redirecting users to the original link. Used mainly for sharing and storing URL's that are big. Storage benefits, used in instant messaging services (messenger, twitter etc.) as there is a cap on how many characters a message can carry. Can also be used for malicious work, as the tiny URL often hides the redirect.
 
 #### How does it work
 The client calls the domain of a server with a path parameter. That path parameter is an ID associated with the original link. The ID can be anything, but often randomly generated, hashed or using auto-increment indexes and converting them to base36/32  The ID is case-sensitive and often in base 36 (26 characters + 10 numbers) or base 62 if we also want to include capital letters. 
