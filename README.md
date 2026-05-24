@@ -7,7 +7,7 @@ A program that reduces the length of an URL without losing it's properties. Used
 #### How does it work
 The client calls the domain of a server with a path parameter. That path parameter is an ID associated with the original link. The ID can be anything, but often randomly generated, hashed or using auto-increment indexes and converting them to base36/32  The ID is case-sensitive and often in base 36 (26 characters + 10 numbers) or base 62 if we also want to include capital letters. 
 
-#### How I think it's built
+#### How it's built
 What it's composed of: 
 * A backend server
 	* handles logic, exposes two endpoints: `/generate`, `/URL_ID` where the URL_ID can be any ID's generated.
