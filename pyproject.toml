@@ -8,6 +8,8 @@ dependencies = [
     "fastapi>=0.115",
     "uvicorn[standard]>=0.30",
     "asyncpg>=0.30",
+    "requests>=2.34.2",
+    "httpx>=0.28.1",
 ]
 
 [tool.hatch.build.targets.wheel]
