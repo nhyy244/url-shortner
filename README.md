@@ -27,4 +27,8 @@ Example: $n=3*10^9$ and $N=2.82*10^{12}$ then the expected number of generations
 #### System design: 
 * **Relevant Metrics:** number of users, number of requests, number of concurrent requests.
 * **Components:** Number of servers, Number of app instances, number of DB's, Number of load balancers.
-* **Techniques to optimize storage and retrieval time**: Set an expiration time on the ID. Use Redis for cache (Redis is an in-memory DB) and Postgres for storage. Flag relevant URL's and put them in Redis (hot URLs). Database sharding strategy for URL mappings (range vs hash-based). how to handle high-read write ratios and potential collisions.
+* **Techniques to optimize storage and retrieval time**: Set an expiration time on the ID. Use Redis for cache (Redis is an in-memory DB) and Postgres for storage. Flag relevant URL's and put them in Redis (hot URLs). Database sharding strategy for URL mappings (range vs hash-based). how to handle high-read write ratios and potential collisions, load balancers, rate limiting to prevent DDoS attacks or just a burst of resource usage.
+
+
+#### Try it out
+Start the server + db with `docker compose -f docker/docker-compose.yml up -d` then run the fastAPI server with `python main.py`. The server exposes two endpoints: `\generate` that takes a query parameter which is the original URL and generates and returns a corresponding ID (example: `curl http://localhost:8000/generate?original_url='https://google.com'`). `\{URL_ID}` which redirects you to the corresponding original_url (example: `curl http://localhost:8000/34I4u8N1`). The URL_ID is base62 and has length 8.

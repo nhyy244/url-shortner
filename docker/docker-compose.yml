@@ -9,5 +9,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/url_shortner
+    depends_on:
+      - db
+    restart: unless-stopped
+
 volumes:
   postgres_data:

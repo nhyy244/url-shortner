@@ -1,9 +1,12 @@
+import os
 import asyncpg
 from asyncpg import Pool
 
 pool: Pool | None = None
 
-DSN = "postgresql://postgres:postgres@localhost:5432/url_shortner"
+DSN = os.getenv(
+    "DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/url_shortner"
+)
 
 
 async def init_pool() -> Pool:
