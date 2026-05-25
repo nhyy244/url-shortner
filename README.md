@@ -31,4 +31,4 @@ Example: $n=3*10^9$ and $N=2.82*10^{12}$ then the expected number of generations
 
 
 #### Try it out
-Start the server + db with `docker compose -f docker/docker-compose.yml up -d` then run the fastAPI server with `python main.py`. The server exposes two endpoints: `\generate` that takes a query parameter which is the original URL and generates and returns a corresponding ID (example: `curl http://localhost:8000/generate?original_url='https://google.com'`). `\{URL_ID}` which redirects you to the corresponding original_url (example: `curl http://localhost:8000/34I4u8N1`). The URL_ID is base62 and has length 8.
+Start the server + db with `docker compose -f docker/docker-compose.yml up -d`. The server exposes two endpoints: `\generate` that takes a query parameter which is the original URL and generates and returns a corresponding ID (example: `curl http://localhost:8000/generate?original_url='https://google.com'`). `\{URL_ID}` which redirects you to the corresponding original_url (example: `curl http://localhost:8000/34I4u8N1`). The URL_ID is base62 and has length 8.
